@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SoundScore - Questão</title>
+    <link rel="stylesheet" href="/styles/questoes.css" />
+    <link rel="icon" type="image/x-icon" href="/screens/images/star-sound-transformed.png">
+</head>
+
+<body>
+    <div class="divCenter">
+        <div class="buttonNav">
+            <a href="/screens/telaExercicios.html">Voltar</a>
+        </div>
+        <div class="logo-align">
+            <img class="logo-nav" src="/screens/images/sound-score-logo-branco.png" alt="Logo">
+        </div>
+    </div>
+
+    <div id="container">
+        <h2>Vamos testar seu Conhecimento?</h2>
+        <p id="message">Qual é a escala de DÓ maior?</p>
+        <div class="input-group">
+            <input type="radio" name="characteristic" value="altura" id="option1">
+            <p>C#DEF#GAB</p>
+        </div>
+        <div class="input-group">
+            <input type="radio" name="characteristic" value="intensidade" id="option2">
+            <p>CDEFG#AB</p>
+        </div>
+        <div class="input-group">
+            <input type="radio" name="characteristic" value="funcao" id="option3">
+            <p>CDEFGAB</p>
+        </div>
+        <div class="input-group">
+            <input type="radio" name="characteristic" value="timbre" id="option4">
+            <p>CDEF#GA#B</p>
+        </div>
+        <button id="validateButton">Validar Respostas</button>
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const correctOption = document.getElementById('option3');
+            const feedback = document.getElementById('feedback');
+            const incorrectOptions = [document.getElementById('option1'), document.getElementById('option2'), document.getElementById('option4')];
+
+            function resetOptions() {
+                incorrectOptions.forEach(option => {
+                    option.classList.remove('hidden');
+                });
+            }
+
+            function validateAnswersQuiz() {
+                const correctAnswer = 'funcao';
+                const radios = document.getElementsByName('characteristic');
+                let userAnswer = '';
+
+                for (const radio of radios) {
+                    if (radio.checked) {
+                        userAnswer = radio.value;
+                        break;
+                    }
+                }
+
+                if (userAnswer === '') {
+                    feedback.textContent = "Escolha uma opção primeiro.";
+                    feedback.style.color = 'orange';
+                } else {
+                    if (userAnswer === correctAnswer) {
+                        feedback.textContent = 'Correto! É a escala de DÓ maior.';
+                        feedback.style.color = 'green';
+                        resetOptions();
+                        setTimeout(() => {
+                            window.location.href = 'quiz3.html';
+                        }, 1000);
+                    } else {
+                        feedback.textContent = 'Errado! Tente novamente.';
+                        feedback.style.color = 'red';
+                    }
+                }
+            }
+
+            document.getElementById('validateButton').addEventListener('click', validateAnswersQuiz);
+
+            incorrectOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    option.classList.add('hidden');
+                    feedback.textContent = 'Incorreto. Tente novamente!';
+                    feedback.style.color = 'red';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

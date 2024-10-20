@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundScore</title>
+    <link rel="stylesheet" href="../styles/telaExercicios.css" />
+    <link rel="icon" type="image/x-icon" href="../screens/images/star-sound-transformed.png">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="title">SoundScore</div>
+        </div>
+        <button id="info-modal" class="info-modal">
+            <img class="profile-icon" src="https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png"
+                alt="Profile Icon">
+        </button>
+    </header>
+
+    <div class="side-by-side">
+        <div class="sidebar">
+            <div class="sidebar-container">
+                <div class="sidebar-title">Bases</div>
+                <div class="sidebar-content">
+                    <button class="button" onclick="showExercise('notas')">Notas</button>
+                </div>
+            </div>
+            <div class="sidebar-container">
+                <div class="sidebar-title">Estrutura</div>
+                <div class="sidebar-content">
+                    <button class="button" onclick="showExercise('intervalos')">Intervalos</button>
+                    <button class="button" onclick="showExercise('acordes')">Acordes</button>
+                    <button class="button" onclick="showExercise('escalas')">Escalas</button>
+                </div>
+            </div>
+            <div class="sidebar-container">
+                <div class="sidebar-title">Musical</div>
+                <div class="sidebar-content">
+                    <button class="button" onclick="showExercise('treino-audicao')">Treino de audição</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="exercise-notas" class="exercise-container">
+            <div class="exercise-title">Notas Básicas</div>
+            <div class="piano-buttons">
+                <button class="piano-button" onclick="location.href='./questoes/quiz1.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/?size=100&id=10568&format=png&color=000000" alt="Piano Icon">
+                        <span class="main-text">Características</span>
+                        <p class="description-text">Identifique a característica que não é de uma nota musical</p>
+                    </div>
+                </button>
+
+                <button class="piano-button" onclick="location.href='./questoes/quiz2.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/?size=100&id=10568&format=png&color=000000" alt="Piano Icon">
+                        <span class="main-text">Escala</span>
+                        <p class="description-text">Identifique qual é a Escala certa da nota "Dó"</p>
+                    </div>
+                </button>
+
+                <button class="piano-button" onclick="location.href='./questoes/quiz3.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/?size=100&id=7542&format=png&color=000000" alt="Piano Icon">
+                        <span class="main-text">Audição</span>
+                        <p class="description-text">Ouça atentamente e identifique quais notas estão corretas</p>
+                    </div>
+                </button>
+            </div>
+            <div class="piano-buttons">
+                <button class="piano-button" onclick="location.href='./questoes/teclas1.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/ios-filled/100/000000/piano.png" alt="Piano Icon">
+                        <span class="main-text">Identificação</span>
+                        <p class="description-text">Identifique qual é a nota "Dó" no Teclado</p>
+                    </div>
+                </button>
+
+                <button class="piano-button" onclick="location.href='./questoes/teclas2.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/ios-filled/100/000000/piano.png" alt="Piano Icon">
+                        <span class="main-text">Identificação</span>
+                        <p class="description-text">Identifique qual é a nota selecionada no Teclado</p>
+                    </div>
+                </button>
+
+                <button class="piano-button" onclick="location.href='./questoes/teclas3.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/ios-filled/100/000000/piano.png" alt="Piano Icon">
+                        <span class="main-text">Identificação</span>
+                        <p class="description-text">Identifique qual é a nota "Ré" no Teclado</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div id="exercise-intervalos" class="exercise-container">
+            <div class="exercise-title">Intervalos Entre Notas</div>
+            <div class="piano-buttons">
+                <button class="piano-button" onclick="location.href='./questoes/intervalo1.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/?size=100&id=10568&format=png&color=000000" alt="Piano Icon">
+                        <span class="main-text">Identificação</span>
+                        <p class="description-text">Identifique o intervalo demonstrado no Teclado</p>
+                    </div>
+                </button>
+
+                <button class="piano-button" onclick="location.href='./questoes/intervalo2.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/?size=100&id=10568&format=png&color=000000" alt="Piano Icon">
+                        <span class="main-text">Identificação</span>
+                        <p class="description-text">Identifique o intervalo demonstrado no Teclado</p>
+                    </div>
+                </button>
+            </div>
+            <div class="piano-buttons">
+                <button class="piano-button" onclick="location.href='./questoes/intervalo3.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/ios-filled/100/000000/piano.png" alt="Piano Icon">
+                        <span class="main-text">Seleção</span>
+                        <p class="description-text">Selecione o intervalo solicitado no Teclado</p>
+                    </div>
+                </button>
+
+                <button class="piano-button" onclick="location.href='./questoes/intervalo4.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/?size=100&id=10568&format=png&color=000000" alt="Piano Icon">
+                        <span class="main-text">Identificação</span>
+                        <p class="description-text">Identifique o intervalo demonstrado no Teclado</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div id="exercise-acordes" class="exercise-container">
+            <div class="exercise-title">Acordes</div>
+            <div class="piano-buttons">
+                <button class="piano-button" onclick="location.href='./questoes/acordes1.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/?size=100&id=10568&format=png&color=000000" alt="Piano Icon">
+                        <span class="main-text">Identificação</span>
+                        <p class="description-text">Identifique qual o acorde demonstrado no Teclado</p>
+                    </div>
+                </button>
+
+                <button class="piano-button" onclick="location.href='./questoes/acordes2.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/ios-filled/100/000000/piano.png" alt="Piano Icon">
+                        <span class="main-text">Seleção</span>
+                        <p class="description-text">Selecione corretamente as notas para o "Acorde G"</p>
+                    </div>
+                </button>
+            </div>
+            <div class="piano-buttons">
+                <button class="piano-button" onclick="location.href='./questoes/acordes3.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/?size=100&id=10568&format=png&color=000000" alt="Piano Icon">
+                        <span class="main-text">Identificação</span>
+                        <p class="description-text">Identifique qual o acorde demonstrado no Teclado</p>
+                    </div>
+                </button>
+
+                <button class="piano-button" onclick="location.href='./questoes/acordes4.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/ios-filled/100/000000/piano.png" alt="Piano Icon">
+                        <span class="main-text">Seleção</span>
+                        <p class="description-text">Selecione corretamente as notas para o "Acorde F6"</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div id="exercise-escalas" class="exercise-container">
+            <div class="exercise-title">Escalas</div>
+            <div class="piano-buttons">
+                <button class="piano-button" onclick="location.href='./questoes/escala1.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/?size=100&id=10568&format=png&color=000000" alt="Piano Icon">
+                        <span class="main-text">Identificação</span>
+                        <p class="description-text">Identifique qual a escala demonstrado no Teclado</p>
+                    </div>
+                </button>
+                
+                <button class="piano-button" onclick="location.href='./questoes/escala2.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/ios-filled/100/000000/piano.png" alt="Piano Icon">
+                        <span class="main-text">Seleção</span>
+                        <p class="description-text">Selecione as notas para a "Escala Menor Natural de Mi"</p>
+                    </div>
+                </button>
+            </div>
+            <div class="piano-buttons">
+                <button class="piano-button" onclick="location.href='./questoes/escala3.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/ios-filled/100/000000/piano.png" alt="Piano Icon">
+                        <span class="main-text">Seleção</span>
+                        <p class="description-text">Selecione as notas para o "Escala Pentatónica Maior"</p>
+                    </div>
+                </button>
+                
+                <button class="piano-button" onclick="location.href='./questoes/escala4.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/ios-filled/100/000000/piano.png" alt="Piano Icon">
+                        <span class="main-text">Seleção</span>
+                        <p class="description-text">Selecione as notas para o "Escala Lídio de Sol"</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div id="exercise-treino-audicao" class="exercise-container">
+            <div class="exercise-title">Treino de Audição</div>
+            <div class="piano-buttons">
+                <button class="piano-button" onclick="location.href='./questoes/musical1.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/?size=100&id=7542&format=png&color=000000" alt="Piano Icon">
+                        <span class="main-text">Audição</span>
+                        <p class="description-text">Ouça atentamente e identifique quais notas estão corretas</p>
+                    </div>
+                </button>
+                
+                <button class="piano-button" onclick="location.href='./questoes/musical2.html'">
+                    <div class="button-content">
+                        <img src="https://img.icons8.com/?size=100&id=7542&format=png&color=000000" alt="Piano Icon">
+                        <span class="main-text">Audição</span>
+                        <p class="description-text">Ouça atentamente e identifique quais notas estão corretas</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalInfo" class="main-contentInfo">
+        <div class="info-container">
+            <span class="close">&times;</span>
+            <h2>Dados de Usuário</h2>
+            <div class="user-info">
+                <div><strong>Nome:</strong> <span id="nome-usuario"></span></div>
+                <div><strong>Email:</strong> <span id="email-usuario"></span></div>
+                <div><strong>Nível Atual:</strong> <span id="nivel-atual"></span></div>
+
+                <div class="divider"></div>
+
+                <div><strong>Níveis "Base" Concluídos:</strong> <span id="exercicios-base"></span>/6</div>
+                <div><strong>Níveis "Estrutura" Concluídos:</strong> <span id="exercicios-estrutura"></span>/12</div>
+                <div><strong>Níveis "Musical" Concluídos:</strong> <span id="exercicios-musical"></span>/2</div>
+            </div>
+
+            <br>
+
+            <button type="submit" class="leave-button" id="leave-button">Sair</button>
+            </form>
+            </form>
+        </div>
+    </div>
+
+    <script src="../scripts/bloquearExercicios.js"></script>
+    <script src="../scripts/scriptModalInfo.js"></script>
+    <script src="../scripts/dadosUsuarioTelaExercicios.js"></script>
+</body>
+
+</html>

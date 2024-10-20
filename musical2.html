@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SoundScore - Questões</title>
+    <link rel="stylesheet" href="/styles/questoes.css" />
+    <link rel="icon" type="image/x-icon" href="/screens/images/star-sound-transformed.png">
+    <style>
+        .input-groupQuiz3 {
+            margin: 10px 0;
+        }
+
+        .inputQuiz3 {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #8020BC;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #9b3cdc;
+        }
+
+        #feedback {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="divCenter">
+        <div class="buttonNav">
+            <a href="/screens/telaExercicios.html">Voltar</a>
+        </div>
+        <div class="logo-align">
+            <img class="logo-nav" src="/screens/images/sound-score-logo-branco.png" alt="Logo">
+        </div>
+    </div>
+
+    <div id="container">
+        <h2>Tocar Som</h2>
+        <button onclick="playSoundQuiz3('../sons/key01.mp3')">Som 1</button>
+        <button onclick="playSoundQuiz3('../sons/key02.mp3')">Som 2</button>
+        <button onclick="playSoundQuiz3('../sons/key03.mp3')">Som 3</button>
+        <button onclick="playSoundQuiz3('../sons/key04.mp3')">Som 4</button>
+
+        <p id="message">Escute os sons, observe qual é o errado e preencha os campos com "certo" e "errado"</p>
+
+        <div class="input-groupQuiz3">
+            <p>Sol</p>
+            <input class="inputQuiz3" type="text" placeholder="Som 1" id="Sol">
+        </div>
+        <div class="input-groupQuiz3">
+            <p>La</p>
+            <input class="inputQuiz3" type="text" placeholder="Som 2" id="La">
+        </div>
+        <div class="input-groupQuiz3">
+            <p>Si</p>
+            <input class="inputQuiz3" type="text" placeholder="Som 3" id="Si">
+        </div>
+        <div class="input-groupQuiz3">
+            <p>Dó</p>
+            <input class="inputQuiz3" type="text" placeholder="Som 4" id="Dó">
+        </div>
+
+        <button onclick="validateAnswersQuiz3()">Validar Respostas</button>
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        function playSoundQuiz3(url) {
+            const audio = new Audio(url);
+            audio.play();
+        }
+
+        function validateAnswersQuiz3() {
+            const answers = {
+                'Sol': 'certo',
+                'La': 'errado',
+                'Si': 'certo',
+                'Dó': 'certo'
+            };
+            
+            let correct = true;
+            const feedback = document.getElementById('feedback');
+            
+            Object.keys(answers).forEach(key => {
+                const input = document.getElementById(key).value.trim().toLowerCase();
+                if (input !== answers[key]) {
+                    correct = false;
+                }
+            });
+
+            if (correct) {
+                feedback.textContent = 'Correto!';
+                feedback.style.color = 'green';
+                setTimeout(() => {
+                    window.location.href = '../telaExercicios.html';
+                }, 1000); 
+            } else {
+                feedback.textContent = 'Incorreto. Verifique as respostas.';
+                feedback.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SoundScore - Teclado de Piano</title>
+    <link rel="stylesheet" href="/styles/questoes.css" />
+    <link rel="icon" type="image/x-icon" href="/screens/images/star-sound-transformed.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin: 0;
+        }
+
+        .divCenter {
+            position: relative;
+            background-color: #8020BC;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .buttonNav {
+            position: absolute;
+            left: 20px;
+        }
+
+        .buttonNav a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            padding: 12px 24px;
+            border-radius: 5px;
+            background-color: #8020BC;
+            color: #ffffff;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .buttonNav a:hover {
+            background-color: #9b3cdc;
+        }
+
+        .logo-nav {
+            height: 70px;
+            width: auto;
+        }
+
+        #container {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #562674;
+        }
+
+        p#message {
+            font-size: 18px;
+            line-height: 1.2;
+            color: #333;
+        }
+
+        .piano-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .key {
+            height: 160px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            cursor: pointer;
+            display: inline-block;
+            width: calc(100% / 14);
+            background: white;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .key.black {
+            position: absolute;
+            width: calc(100% / 14 / 2);
+            height: 80px;
+            background: black;
+            top: 0;
+            z-index: 2;
+            margin-left: calc((100% / 14 / 2) - (100% / 14) / 2);
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .key.correct {
+            border: 2px solid green;
+        }
+
+        #feedback {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .validate-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #8020BC;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .validate-btn:hover {
+            background-color: #9b3cdc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="divCenter">
+        <div class="buttonNav">
+            <a href="/screens/telaExercicios.html">Voltar</a>
+        </div>
+        <div class="logo-align">
+            <img class="logo-nav" src="/screens/images/sound-score-logo-branco.png" alt="Logo">
+        </div>
+    </div>
+
+    <div id="container">
+        <h2>Vamos testar seu Conhecimento?</h2>
+        <p id="message">Clique na tecla Dó</p>
+        <div class="piano-container">
+            <div class="key white" data-note="C" data-correct="true" id="key1"></div>
+            <div class="key white" data-note="D"></div>
+            <div class="key white" data-note="E"></div>
+            <div class="key white" data-note="F"></div>
+            <div class="key white" data-note="G"></div>
+            <div class="key white" data-note="A"></div>
+            <div class="key white" data-note="B"></div>
+            <div class="key white" data-note="C2"></div>
+            <div class="key white" data-note="D2"></div>
+            <div class="key white" data-note="E2"></div>
+            <div class="key white" data-note="F2"></div>
+            <div class="key white" data-note="G2"></div>
+            <div class="key white" data-note="A2"></div>
+            <div class="key white" data-note="B2"></div>
+
+            <div class="key black" style="left: calc((100% / 14) * 1.5);"></div>
+            <div class="key black" style="left: calc((100% / 14) * 2.5);"></div>
+            <div class="key black" style="left: calc((100% / 14) * 4.5);"></div>
+            <div class="key black" style="left: calc((100% / 14) * 5.5);"></div>
+            <div class="key black" style="left: calc((100% / 14) * 6.5);"></div>
+            <div class="key black" style="left: calc((100% / 14) * 8.5);"></div>
+            <div class="key black" style="left: calc((100% / 14) * 9.5);"></div>
+            <div class="key black" style="left: calc((100% / 14) * 11.5);"></div>
+            <div class="key black" style="left: calc((100% / 14) * 12.5);"></div>
+            <div class="key black" style="left: calc((100% / 14) * 13.5);"></div>
+        </div>
+        <p id="feedback"></p>
+        <button class="validate-btn" id="validateBtn">Validar Resposta</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const keys = document.querySelectorAll('.key.white');
+            const feedback = document.getElementById('feedback');
+            let selectedKey = null;
+
+            keys.forEach(key => {
+                key.addEventListener('click', () => {
+                    selectedKey = key;
+                    keys.forEach(k => k.classList.remove('correct'));
+                    key.classList.add('correct');
+                });
+            });
+
+            document.getElementById('validateBtn').addEventListener('click', (event) => {
+                event.preventDefault();
+
+                if (selectedKey && selectedKey.dataset.correct) {
+                    feedback.textContent = 'Correto!';
+                    feedback.style.color = 'green';
+
+                    setTimeout(() => {
+                        window.location.href = 'teclas2.html';
+                    }, 1000);
+                } else {
+                    feedback.textContent = 'Tente novamente!';
+                    feedback.style.color = 'red';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

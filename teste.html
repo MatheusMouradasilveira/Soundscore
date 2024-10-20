@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste CRUD PI</title>
+</head>
+<body>
+    <h1>
+        Cadastro de Usuário
+    </h1>
+
+    <br>
+    <br>
+
+    <form id="user-form-register">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required />
+    
+        <label for="emailRegister">Email:</label>
+        <input type="email" id="emailRegister" name="emailRegister" placeholder="Digite seu email" required />
+    
+        <label for="senhaRegister">Senha:</label>
+        <input type="password" id="senhaRegister" name="senhaRegister" placeholder="Digite sua senha" required />
+        
+        <label for="confirmar-senha">Confirmar Senha:</label>
+        <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Confirme sua senha" onkeyup='checarSenha();' required />
+        <span id='message'></span>
+
+        <br>
+
+        <button type="submit" class="register-button" id="register-button"> Cadastrar </button>
+    </form>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1>
+        Login de Usuário
+    </h1>
+
+    <form id="user-form-login">
+        <label for="emailLogin">Email:</label>
+        <input type="email" id="emailLogin" name="emailLogin" placeholder="Digite seu email" required />
+
+        <label for="senhaLogin">Senha:</label>
+        <input type="password" id="senhaLogin" name="senhaLogin" placeholder="Digite sua senha" required />
+
+        <br/>
+  
+        <button type="submit" class="login-button"> Logar </button>
+    </form>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1>
+        Lista de Usuários
+    </h1>
+
+    <ul id="user-list"></ul>
+
+    <script src="../scripts/scriptCadastro.js"></script>
+    <script src="../scripts/scriptLogin.js"></script>
+</body>
+</html>

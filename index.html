@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundScore</title>
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="icon" type="image/x-icon" href="../screens/images/star-sound-transformed.png">
+</head>
+
+<body>
+    <div class="divCenter">
+        <img class="logo-nav" src="../screens/images/sound-score-logo-branco.png">
+    </div>
+
+    <div class="container">
+        <img class="logo-home" src="../screens/images/sound-score-logo.png">
+
+        <div class="main-content">
+            <div class="login-container">
+                <div class="form-group">
+                    <form id="user-form-login">
+                        <h2>
+                            Bem-vindo de Volta!
+                        </h2>
+                        <label for="emailLogin">Email:</label>
+                        <input type="email" id="emailLogin" name="emailLogin" placeholder="Digite seu email" required />
+
+                        <label for="senhaLogin">Senha:</label>
+                        <input type="password" id="senhaLogin" name="senhaLogin" placeholder="Digite sua senha"
+                            required />
+
+                        <div class="forgot-password">
+                            <a href="../screens/recuperacaoSenha.html">Esqueci a senha</a>
+                        </div>
+
+                        <br />
+
+                        <button type="submit" class="login-button"> Logar </button>
+
+                        <div class="create-account">
+                            Não possui uma conta? <a id="register-modal">Crie uma conta</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalRegister" class="main-contentRegister">
+            <div class="register-container">
+                <span class="close">&times;</span>
+                <h2>Criando uma Conta</h2>
+                <form id="user-form-register">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required />
+
+                    <label for="emailRegister">Email:</label>
+                    <input type="email" id="emailRegister" name="emailRegister" placeholder="Digite seu email"
+                        required />
+
+                    <label for="senhaRegister">Senha:</label>
+                    <input type="password" id="senhaRegister" name="senhaRegister" placeholder="Digite sua senha"
+                        required />
+
+                    <label for="confirmar-senha">Confirmar Senha:</label>
+                    <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Confirme sua senha"
+                        onkeyup='checarSenha();' required />
+                    <span id='message'></span>
+
+                    <br>
+
+                    <div class="form-group checkbox-group">
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="aceito-termos" name="aceito-termos" class="align-checkbox" required />
+                            <label for="aceito-termos" class="terms-label">Eu concordo com os termos de uso</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="register-button" id="register-button">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/scriptLogin.js"></script>
+    <script src="scripts/scriptCadastro.js"></script>
+    <script src="scripts/scriptModalIndex.js"></script>
+</body>
+
+</html>

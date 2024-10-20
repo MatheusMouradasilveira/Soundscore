@@ -1,0 +1,169 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+}
+
+.divCenter {
+    text-align: center;
+    background-color: #8020BC;
+}
+
+.divCenter h1 {
+    color: white;
+    font-size: 24px;
+}
+
+nav {
+    text-align: left;
+    padding-left: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+    float: left;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #562674;
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    padding: 10px 12px;
+}
+
+nav ul li a:hover {
+    background-color: #BC7CE5;
+    border-radius: 5px;
+}
+
+img {
+    height: 70px;
+    width: auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recovery-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.checkbox-group-align {
+    margin-top: 4px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.terms-label {
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.recover-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #8020BC;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.recover-button:hover {
+    background-color: #562674;
+}
+
+footer {
+    background-color: #BC7CE5;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+footer p {
+    color: #562674;
+    font-size: 14px;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+}
+
+h1 {
+    font-family: monospace
+}
+
+h2 {
+    font-size: 24px;
+    color: #562674;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}

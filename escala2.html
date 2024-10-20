@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SoundScore - Teclado de Piano</title>
+    <link rel="stylesheet" href="/styles/questoes.css" />
+    <link rel="icon" type="image/x-icon" href="/screens/images/star-sound-transformed.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin: 0;
+        }
+
+        .divCenter {
+            position: relative;
+            background-color: #8020BC;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .buttonNav {
+            position: absolute;
+            left: 20px;
+        }
+
+        .buttonNav a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            padding: 12px 24px;
+            border-radius: 5px;
+            background-color: #8020BC;
+            color: #ffffff;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .buttonNav a:hover {
+            background-color: #9b3cdc;
+        }
+
+        .logo-nav {
+            height: 70px;
+            width: auto;
+        }
+
+        #container {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #562674;
+        }
+
+        p#message {
+            font-size: 18px;
+            line-height: 1.2;
+            color: #333;
+        }
+
+        .piano-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .key {
+            height: 160px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            cursor: pointer;
+            display: inline-block;
+            width: calc(100% / 14);
+            background: white;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .key.black {
+            position: absolute;
+            width: calc(100% / 14 / 2);
+            height: 80px;
+            background: black;
+            top: 0;
+            z-index: 2;
+            margin-left: calc((100% / 14 / 2) - (100% / 14) / 2);
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #8020BC;
+            z-index: 1;
+            display: none;
+        }
+
+        .highlight.black {
+            bottom: 10px;
+        }
+
+        #feedback {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .option-btn {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #8020BC;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .option-btn:hover {
+            background-color: #9b3cdc;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="divCenter">
+        <div class="buttonNav">
+            <a href="/screens/telaExercicios.html">Voltar</a>
+        </div>
+        <div class="logo-align">
+            <img class="logo-nav" src="/screens/images/sound-score-logo-branco.png" alt="Logo">
+        </div>
+    </div>
+
+    <div id="container">
+        <h2>Vamos testar seu Conhecimento?</h2>
+        <p id="message">Escreva a escala Menor Natural de Mi
+        </p>
+        <div class="piano-container">
+            <div class="key white" data-note="C" id="key1">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="D" id="key2">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="E" id="key3">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="F" id="key4">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="G" id="key5">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="A" id="key6">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="B" id="key7">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="C2" id="key8">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="D2" id="key9">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="E2" id="key10">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="F2" id="key11">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="G2" id="key12">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="A2" id="key13">
+                <div class="highlight"></div>
+            </div>
+            <div class="key white" data-note="B2" id="key14">
+                <div class="highlight"></div>
+            </div>
+
+            <div class="key black" style="left: calc((100% / 14) * 1.5);">
+                <div class="highlight black"></div>
+            </div>
+            <div class="key black" style="left: calc((100% / 14) * 2.5);">
+                <div class="highlight black"></div>
+            </div>
+            <div class="key black" style="left: calc((100% / 14) * 4.5);" id="key3_black">
+                <div class="highlight black"></div>
+            </div>
+            <div class="key black" style="left: calc((100% / 14) * 5.5);">
+                <div class="highlight black"></div>
+            </div>
+            <div class="key black" style="left: calc((100% / 14) * 6.5);">
+                <div class="highlight black"></div>
+            </div>
+            <div class="key black" style="left: calc((100% / 14) * 8.5);">
+                <div class="highlight black"></div>
+            </div>
+            <div class="key black" style="left: calc((100% / 14) * 9.5);">
+                <div class="highlight black"></div>
+            </div>
+            <div class="key black" style="left: calc((100% / 14) * 11.5);">
+                <div class="highlight black"></div>
+            </div>
+            <div class="key black" style="left: calc((100% / 14) * 12.5);">
+                <div class="highlight black"></div>
+            </div>
+            <div class="key black" style="left: calc((100% / 14) * 13.5);">
+                <div class="highlight black"></div>
+            </div>
+        </div>
+        <p id="feedback"></p>
+        <div>
+            <button id="validate" class="option-btn">Validar</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const correctKeys = new Set(['key3', 'key5', 'key6', 'key7', 'key8', 'key9', 'key10', 'key3_black']);
+            const feedback = document.getElementById('feedback');
+            const keys = document.querySelectorAll('.key');
+            let clickedKeys = 0;
+            const selectedKeys = new Set();
+
+            keys.forEach(key => {
+                key.addEventListener('click', () => {
+                    const highlight = key.querySelector('.highlight');
+                    if (clickedKeys < 8 && !selectedKeys.has(key.id)) {
+                        highlight.style.display = 'block';
+                        selectedKeys.add(key.id);
+                        clickedKeys++;
+                    } else if (selectedKeys.has(key.id)) {
+                        highlight.style.display = 'none';
+                        selectedKeys.delete(key.id);
+                        clickedKeys--;
+                    }
+                });
+            });
+
+            document.getElementById('validate').addEventListener('click', () => {
+                if (clickedKeys === 8 && arraysEqual(Array.from(selectedKeys), Array.from(correctKeys))) {
+                    feedback.textContent = 'Correto! Esta é a sequência correta de teclas.';
+                    feedback.style.color = 'green';
+                    setTimeout(() => {
+                        window.location.href = 'escala3.html';
+                    }, 1000);
+                } else {
+                    feedback.textContent = 'Incorreto. Tente novamente!';
+                    feedback.style.color = 'red';
+                }
+            });
+
+            function arraysEqual(arr1, arr2) {
+                return arr1.length === arr2.length && arr1.every(value => arr2.includes(value));
+            }
+        });
+    </script>
+</body>
+
+</html>

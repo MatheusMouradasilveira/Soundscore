@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SoundScore - Questões</title>
+    <link rel="stylesheet" href="/styles/questoes.css" />
+    <link rel="icon" type="image/x-icon" href="/screens/images/star-sound-transformed.png">
+</head>
+
+<body>
+    <div class="divCenter">
+        <div class="buttonNav">
+            <a href="/screens/telaExercicios.html">Voltar</a>
+        </div>
+        <div class="logo-align">
+            <img class="logo-nav" src="/screens/images/sound-score-logo-branco.png" alt="Logo">
+        </div>
+    </div>
+
+    <div id="container">
+        <h2>Tocar Som</h2>
+        <button onclick="playSoundQuiz('../sons/key01.mp3')">Som 1</button>
+        <button onclick="playSoundQuiz('../sons/key02.mp3')">Som 2</button>
+        <button onclick="playSoundQuiz('../sons/key03.mp3')">Som 3</button>
+        <button onclick="playSoundQuiz('../sons/key04.mp3')">Som 4</button>
+
+        <p id="message">Escute os sons, observe qual é o errado e preencha os campos com "certo" e "errado"</p>
+
+        <div class="input-groupQuiz3">
+            <p>A maior</p>
+            <input class="inputQuiz3" type="text" placeholder="Som 1" id="a-maior">
+        </div>
+        <div class="input-groupQuiz3">
+            <p>G maior</p>
+            <input class="inputQuiz3" type="text" placeholder="Som 2" id="g-maior">
+        </div>
+        <div class="input-groupQuiz3">
+            <p>C maior</p>
+            <input class="inputQuiz3" type="text" placeholder="Som 3" id="c-maior">
+        </div>
+        <div class="input-groupQuiz3">
+            <p>D maior</p>
+            <input class="inputQuiz3" type="text" placeholder="Som 4" id="d-maior">
+        </div>
+
+        <button id="validateButton">Validar Respostas</button>
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        function playSoundQuiz(filename) {
+            const audio = new Audio(filename);
+            audio.play();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            function validateAnswersQuiz() {
+                const aMaior = document.getElementById('a-maior').value.trim().toLowerCase();
+                const gMaior = document.getElementById('g-maior').value.trim().toLowerCase();
+                const cMaior = document.getElementById('c-maior').value.trim().toLowerCase();
+                const dMaior = document.getElementById('d-maior').value.trim().toLowerCase();
+                const feedback = document.getElementById('feedback');
+
+                if (aMaior === '' || gMaior === '' || cMaior === '' || dMaior === '') {
+                    feedback.textContent = "Preencha todos os campos primeiro.";
+                    feedback.style.color = 'orange';
+                } else {
+                    if (aMaior === 'certo' && gMaior === 'errado' && cMaior === 'certo' && dMaior === 'certo') {
+                        feedback.textContent = 'Respostas corretas! O som 2 corresponde a nota B Maior.';
+                        feedback.style.color = 'green';
+                        setTimeout(() => {
+                            window.location.href = 'teclas1.html';
+                        }, 1000);
+                    } else {
+                        feedback.textContent = 'Tente novamente com mais calma.';
+                        feedback.style.color = 'red';
+                    }
+                }
+            }
+
+            document.getElementById('validateButton').addEventListener('click', validateAnswersQuiz);
+        });
+    </script>
+</body>
+
+</html>
